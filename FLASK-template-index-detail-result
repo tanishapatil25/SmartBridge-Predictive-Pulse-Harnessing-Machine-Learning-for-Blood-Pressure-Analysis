@@ -1,0 +1,146 @@
+INDEX and DETAIL HTML
+
+with open("Flask/templates/index.html", "w") as f:
+    f.write("""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Pressure Stage Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #8D9150, #59749E); /* Lighter background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background-color: #E1B87E; /*  background for the container */
+            margin-top: 40px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            color: red; /* Darker title color */
+        }
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 90%;
+        }
+        .btn {
+            grid-column: span 2;
+            text-align: center;
+        }
+        input[type="submit"] {
+            background-color:green;
+            color: black;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: parrotgreen;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Blood Pressure Stage Predictor</h2>
+    <form action="/" method="POST">
+        <div>
+            <label>Gender:</label>
+            <input type="text" name="Gender" required>
+        </div>
+        <div>
+            <label>Age:</label>
+            <input type="number" name="Age" required>
+        </div>
+        <div>
+            <label>History:</label>
+            <input type="text" name="History" required>
+        </div>
+        <div>
+            <label>Patient:</label>
+            <input type="text" name="Patient" required>
+        </div>
+        <div>
+            <label>Take Medication:</label>
+            <input type="text" name="TakeMedication" required>
+        </div>
+        <div>
+            <label>Severity:</label>
+            <input type="text" name="Severity" required>
+        </div>
+        <div>
+            <label>Breath Shortness:</label>
+            <input type="text" name="BreathShortness" required>
+        </div>
+        <div>
+            <label>Visual Changes:</label>
+            <input type="text" name="VisualChanges" required>
+        </div>
+        <div>
+            <label>Nose Bleeding:</label>
+            <input type="text" name="NoseBleeding" required>
+        </div>
+        <div>
+            <label>When Diagnosed:</label>
+            <input type="text" name="Whendiagnoused" required>
+        </div>
+        <div>
+            <label>Systolic:</label>
+            <input type="number" name="Systolic" required>
+        </div>
+        <div>
+            <label>Diastolic:</label>
+            <input type="number" name="Diastolic" required>
+        </div>
+        <div>
+            <label>Controlled Diet:</label>
+            <input type="text" name="ControlledDiet" required>
+        </div>
+        <div class="btn">
+            <input type="submit" value="Predict">
+        </div>
+    </form>
+</div>
+</body>
+</html>
+    """)
+    
+RESULT.HTML
+
+with open("Flask/templates/result.html", "w") as f:
+    f.write("""
+<!DOCTYPE html>
+<html>
+<head><title>Result</title></head>
+<body>
+    <h2>Prediction Result</h2>
+    <p>{{ prediction }}</p>
+    <a href="/">Go back</a>
+</body>
+</html>
+    """)
+
+
+
+    
